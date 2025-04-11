@@ -53,20 +53,18 @@ function knightMoves(start, target) {
     let path = [];
     // trace the path back
     // currentSquare now has the target pos
-    // until we reach the start pos
-    // we go to the current prev
+    // until we reach null (start.previous is null)
+    // we go current = current.prev
 
-    // while (currentSquare.pos[0] != start.pos[0] && currentSquare.pos[1] != start.pos[1]) {
+    while (currentSquare != null) {
+        path.push(currentSquare.pos);
+        currentSquare = currentSquare.previous;
+    }
+    console.log(path);
 
-    //     // find that visited square with pos == current previous
-
-    //     visited.forEach(move => {
-            
-    //     });
-
-    // }
-
-    console.log(visited);
-    console.log(currentSquare);
+    console.log(`You did it in ${path.length} moves! Here's your path:`);
+    for (let i = path.length - 1; i >= 0; i--) {
+        console.log(path[i]);
+    };
 }
 
